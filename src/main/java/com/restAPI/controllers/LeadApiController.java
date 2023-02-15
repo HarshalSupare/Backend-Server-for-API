@@ -51,6 +51,7 @@ public class LeadApiController {
         return result;
     }
 
+//    This will get single record
     public static ArrayList<LeadData> findLeadData(Integer leadId){
         ArrayList<LeadData> result = new ArrayList();
 
