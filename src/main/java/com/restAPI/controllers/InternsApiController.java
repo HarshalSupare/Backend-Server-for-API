@@ -37,6 +37,7 @@ public class InternsApiController {
                 obj.setLastName(lastName);
                 obj.setEmail(email);
                 obj.setPassword(password);
+                obj.setGender(gender);
                 obj.setDob(dob);
                 obj.setEducation(education);
                 result.add(obj);
@@ -47,5 +48,22 @@ public class InternsApiController {
         }
 
         return result;
+    }
+
+    //Insert a data to database
+    public static Integer postInternsData(InternData recieveInternsData){
+        String insertData = "INSERT INTO interns_details (first_name, last_name, email, password, gender, dob, education) VALUE  ('%s','%s','%s','%s','%s','%s','%s')";
+        insertData = String.format(insertData, recieveInternsData.getFirstName(), recieveInternsData.getLastName(), recieveInternsData.getEmail(), recieveInternsData.getPassword(), recieveInternsData.getGender(),recieveInternsData.getDob(), recieveInternsData.getEducation());
+
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/componydb", "root", "Root@123");
+             PreparedStatement preparedStatement = conn.prepareStatement(insertData)) {
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return recieveInternsData.getId();
     }
 }
