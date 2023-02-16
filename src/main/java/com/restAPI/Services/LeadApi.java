@@ -1,12 +1,9 @@
 package com.restAPI.Services;
 
-import com.restAPI.controllers.EmployeeController;
 import com.restAPI.controllers.LeadApiController;
 import com.restAPI.wrapper.LeadData;
-import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
-import jdk.nashorn.internal.runtime.logging.Logger;
 
 @Path("/lead")
 public class LeadApi {

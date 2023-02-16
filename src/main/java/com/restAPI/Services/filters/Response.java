@@ -3,9 +3,7 @@ package com.restAPI.Services.filters;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
-import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
-import sun.plugin.dom.html.HTMLTableCellElement;
 
 import java.io.IOException;
 
