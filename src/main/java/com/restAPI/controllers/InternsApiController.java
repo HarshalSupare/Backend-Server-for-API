@@ -120,4 +120,20 @@ public class InternsApiController {
         return recieveId;
 
     }
+
+    public static Boolean deleteInternData(Integer internId){
+        String deleteIntern =  "delete from interns_details where id = %d;";
+        deleteIntern = String.format(deleteIntern, internId);
+
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/componydb", "root", "Root@123");
+             PreparedStatement preparedStatement = conn.prepareStatement(deleteIntern)) {
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return true;
+    }
 }

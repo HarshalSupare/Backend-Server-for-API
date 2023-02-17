@@ -26,8 +26,14 @@ public class InternsApi {
 
     @PUT
     @Path("/update/{id}")
-    public Response updateLead(@PathParam("id") Integer id, InternData dataCollected){
+    public Response updateIntern(@PathParam("id") Integer id, InternData dataCollected){
         return Response.status(Response.Status.OK).entity(InternsApiController.updateInternsData(id, dataCollected)).type("application/json;charset=utf-8").build();
 
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    public Response deleteIntern(@PathParam("id") Integer id){
+        return Response.status(Response.Status.OK).entity(InternsApiController.deleteInternData(id)).type("application/json;charset=utf-8").build();
     }
 }
